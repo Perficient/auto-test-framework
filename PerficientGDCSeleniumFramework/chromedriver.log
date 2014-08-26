@@ -1,0 +1,46 @@
+[0.002][INFO]:      ChromeDriver 26.0.1383.0 C:\Documents and Settings\colin.zhang\Desktop\New Folder\testingcoe\AutomationTestingWorkshop\PartStoreBasedFramework\lib\chromedriver.exe
+[0.365][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.switches": [  ],
+   "chromeOptions": {
+      "args": [  ],
+      "extensions": [  ]
+   },
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.366][INFO]:      Launching chrome: "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --ignore-certificate-errors about:blank
+[1.276][INFO]:      Connected to Chrome successfully. Version: 30.0.1599.101
+[1.296][FINE]:      Command received (/session/ef7b5a49f428f85629551d489867684f)
+[1.297][FINE]:      Command finished (/session/ef7b5a49f428f85629551d489867684f) with response {
+   "sessionId": "ef7b5a49f428f85629551d489867684f",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "windows",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "30.0.1599.101",
+      "webStorageEnabled": true
+   }
+}
+
+[1.303][FINE]:      Command received (/session/ef7b5a49f428f85629551d489867684f/window/current/maximize) with params {
+   "windowHandle": "current"
+}
+
+[1.303][FINER]:     Waiting for all views to stop loading...
+[1.304][FINER]:     Done waiting for all views to stop loading
+[1.324][FINE]:      Command received (/session/ef7b5a49f428f85629551d489867684f)
+[1.768][INFO]:      Chrome shutdown

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite Google Test Percentage Browser" parallel="false"
+	thread-count="1">
+	<listeners>
+		<listener class-name="com.perficient.test.util.EmailableSummaryReporter" />
+	</listeners>
+	<test name="account test - Browser Percentage Specified">
+		<parameter name="browserFlagO" value="percentage_specified" />
+		<parameter name="runningOnGrid" value="false" />
+		<parameter name="hubHost" value="localhost" />
+		<parameter name="hubPort" value="4458" />
+		<groups>
+			<run>
+				<include name="browserPercentageSpecified" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.perficient.test.google.testcase.account" />
+		</packages>
+	</test>
+
+	<test name="search test - Browser Percentage Specified">
+		<parameter name="browserFlagO" value="percentage_specified" />
+		<parameter name="runningOnGrid" value="false" />
+		<parameter name="hubHost" value="localhost" />
+		<parameter name="hubPort" value="4458" />
+		<groups>
+			<run>
+				<include name="browserPercentageSpecified" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.perficient.test.google.testcase.search" />
+		</packages>
+	</test>
+
+	<test name="translate test - Browser Percentage Specified ">
+		<parameter name="browserFlagO" value="percentage_specified" />
+		<parameter name="runningOnGrid" value="false" />
+		<parameter name="hubHost" value="localhost" />
+		<parameter name="hubPort" value="4458" />
+		<groups>
+			<run>
+				<include name="browserPercentageSpecified" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.perficient.test.google.testcase.translate" />
+		</packages>
+	</test>
+
+</suite>

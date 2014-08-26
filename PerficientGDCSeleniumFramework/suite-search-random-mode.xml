@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Search Test Suite" parallel="false" thread-count="1"
+	configfailurepolicy="continue">
+	<test name="search test - Random Browser">
+		<parameter name="browserFlagO" value="random" />
+		<parameter name="runningOnGrid" value="false" />
+		<parameter name="hubHost" value="localhost" />
+		<parameter name="hubPort" value="4458" />
+
+		<groups>
+			<run>
+				<include name="random" />
+			</run>
+		</groups>
+		<packages>
+			<package name="com.perficient.test.google.testcase.search" />
+		</packages>
+	</test>
+
+</suite>

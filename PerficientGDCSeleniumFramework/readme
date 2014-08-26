@@ -1,0 +1,14 @@
+To run tests, you could select one of the following ways:
+1.use the xml files and run as testNG test in your IDE
+2.use the bat files in windows, and it will launch ant to run the tests
+3.use the build.xml and run as ant build in your IDE
+
+The jenkins config could be found at X:\Projects\TestTeam\Jenkins simply download the files
+and set jenkins home to this folder by pointing the system environment variables JENKINS_HOME to the folder you downloaded
+
+For more information of testng's xml files, please refer to testNG documents(found it on its website)
+For more information of build.xml file, please refer to ant documents(found it on its website)
+For more information of jenkins config, please refer to jenkins documents(found it on its website)
+
+Grid related files are not stable and in-test now, please simply ignore it and
+"how to use grid" will not be included in this read me files now.

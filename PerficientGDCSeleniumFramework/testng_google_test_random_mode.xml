@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite Google Test Random Browser">
+<listeners>
+    <listener class-name="com.perficient.test.util.EmailableSummaryReporter" />
+</listeners>
+
+<suite-files>
+	<suite-file path="./suite-search-random-mode.xml" />
+	<suite-file path="./suite-account-random-mode.xml" />
+	<suite-file path="./suite-translate-random-mode.xml" />
+</suite-files>
+</suite>

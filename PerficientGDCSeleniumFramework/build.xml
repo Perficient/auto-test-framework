@@ -1,0 +1,103 @@
+<project basedir="." default="test_all_browser" name="automation test">
+<property name="base.dir" value="."/>
+    <property name="output.dir" value="${base.dir}/test-output"/>
+    <property name="lib.dir" value="${base.dir}/lib"/>
+	<property name="testdata.dir" value="${base.dir}/testdata"/>
+    <property name="testng.file.all" value="testng_google_test_all_run_mode.xml"/>
+    <property name="testng.file.percentage" value="testng_google_test_percentage_mode.xml"/>
+	<property name="testng.file.random" value="testng_google_test_random_mode.xml"/>
+	<property name="testng.file.parallel" value="suite-parallel-test.xml"/>
+	<property name="user" value="helen.xiang" />
+		<property name="pwd" value="8p7JuKay@10" />
+		<property name="machine160" value="java -jar C:/selenium-server-standalone-2.31.0.jar -role node  -trustAllSSLCertificates -nodeConfig c:/selenium-grid-node-config.json  " />
+
+		 <target name="bootstrap" description="Install missing jars">
+	    <mkdir dir="${user.home}/.ant/lib"/>
+	    <get src="http://search.maven.org/remotecontent?filepath=com/jcraft/jsch/0.1.48/jsch-0.1.48.jar" dest="${user.home}/.ant/lib/jsch.jar"/>
+	</target>
+	
+    <taskdef resource="testngtasks" classpath="${lib.dir}/testng-6.3.1.jar"/>
+		
+    <target name="clean">
+        <delete dir="${base.dir}/bin"/>
+		<delete dir="${output.dir}"/>
+    </target>
+	
+	<target name="init" depends="clean">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="testdata">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+	
+    <target name="compile" depends="init">
+        <mkdir dir="${base.dir}/bin"/>
+        <javac srcdir="${base.dir}/src" destdir="${base.dir}/bin" 
+		encoding='utf-8' classpathref="classes" 
+		includeantruntime="off" debug="on" 
+		debuglevel="lines,vars,source">
+		
+		</javac>
+    </target>
+ 
+    <path id="classes">
+        <fileset dir="${lib.dir}" includes="*jar"/>
+
+        <pathelement location="${base.dir}/bin"/>
+    	
+    </path>
+	
+	<target name="startnodes" depends="startServer" description="Start the nodes on cubits">
+		<sshexec host="10.2.11.160" port="22" username="${user}" password="${pwd}" failonerror="false" trust="true" command="${machine160}" timeout="30000" />
+		<java jar="c:/selenium-server-standalone-2.31.0.jar" fork="true" spawn="true">
+			<arg line ="-role node  -trustAllSSLCertificates -nodeConfig c:/selenium-grid-node-config.json" />
+		</java>
+	</target>
+
+	<target name="startServer" depends="compile" description="Start the selenium grid hub">
+		<java jar="c:/selenium-server-standalone-2.31.0.jar" fork="true" spawn="true">
+			<arg line ="-trustAllSSLCertificates" />
+			<arg line="-timeout 300" />
+			<arg line="-role hub"/>
+			<arg line="-port 4458" />
+		</java>
+	</target>
+	
+	
+    <target name="test_all_browser" depends="compile">
+	<delete dir="${output.dir}"/>
+	<testng outputdir="${output.dir}" classpathref="classes" delegateCommandSystemProperties="true">
+            <xmlfileset dir="${base.dir}" includes="${testng.file.all}"/>
+        </testng>
+    </target>
+	
+	<target name="test_random_browser" depends="compile">
+	<delete dir="${output.dir}"/>
+	<testng outputdir="${output.dir}" classpathref="classes" delegateCommandSystemProperties="true">
+            <xmlfileset dir="${base.dir}" includes="${testng.file.random}"/>
+        </testng>
+    </target>
+	
+	
+	    <target name="test_browser_percentage_specified" depends="compile">
+	<delete dir="${output.dir}"/>
+	<testng outputdir="${output.dir}" classpathref="classes" delegateCommandSystemProperties="true">
+            <xmlfileset dir="${base.dir}" includes="${testng.file.percentage}"/>
+        </testng>
+    </target>
+	
+	<target name="test_parallel" depends="startnodes" >
+	<delete dir="${output.dir}"/>
+	<testng outputdir="${output.dir}" classpathref="classes" delegateCommandSystemProperties="true">
+            <xmlfileset dir="${base.dir}" includes="${testng.file.parallel}"/>
+    </testng>
+    </target>
+   
+</project>

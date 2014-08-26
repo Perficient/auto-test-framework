@@ -1,0 +1,38 @@
+{ 
+"capabilities": 
+	[ { 
+	"browserName": "firefox",
+	"version": "22", 
+	"platform": "WINDOWS", 
+	"maxInstances": 2 
+	}, 
+	{ 
+	"browserName": "chrome",
+	"version": "30", 
+	"platform": "WINDOWS", 
+	"maxInstances": 2 
+	}, 
+	{ 
+	"browserName": "internet explorer",
+	"version": "8", 
+	"platform": "WINDOWS", 
+	"maxInstances": 2
+	} 
+	], 
+	"configuration": 
+	{ 
+	"nodeTimeout":120, 
+	"port":5599, 
+	"hubPort":4444, 
+	"hubHost":"10.2.11.141", 
+	"hub":"http://10.2.11.141:4458/grid/register",
+	"nodePolling":2000, 
+	"registerCycle":10000, 
+	"register":true, 
+	"cleanUpCycle":2000, 
+	"timeout":30000, 
+	"maxSession":1, 
+	"host":10.2.11.141
+	 
+	} } 
+
